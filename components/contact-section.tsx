@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { SiLeetcode } from "react-icons/si"
-import { Tooltip } from "@/components/ui/tooltip"
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
 
 export function ContactSection() {
   const ref = useRef(null)
@@ -143,16 +143,21 @@ export function ContactSection() {
                         >
                           {email}
                         </a>
-                        <Tooltip content={copied ? "Copied!" : "Copy"}>
-                          <Button
-                            type="button"
-                            size="icon"
-                            variant="ghost"
-                            aria-label="Copy email"
-                            onClick={handleCopy}
-                          >
-                            <Copy className="w-4 h-4" />
-                          </Button>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button
+                              type="button"
+                              size="icon"
+                              variant="ghost"
+                              aria-label="Copy email"
+                              onClick={handleCopy}
+                            >
+                              <Copy className="w-4 h-4" />
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            {copied ? "Copied!" : "Copy"}
+                          </TooltipContent>
                         </Tooltip>
                       </div>
                     </div>

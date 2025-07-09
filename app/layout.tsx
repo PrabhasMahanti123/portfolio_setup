@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
 import "./globals.css"
 import HashRedirector from "@/components/hash-redirector"
+import { TooltipProvider } from "@/components/ui/tooltip"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,9 +23,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Navbar />
-          <HashRedirector />
-          {children}
+          <TooltipProvider>
+            <Navbar />
+            <HashRedirector />
+            {children}
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
