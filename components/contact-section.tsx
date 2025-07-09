@@ -204,12 +204,15 @@ export function ContactSection() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-6">Send Me a Message</h3>
-
+                <div className="mb-4">
+                  <span className="text-sm text-muted-foreground">Your message will be sent to: </span>
+                  <span className="font-semibold text-primary">prabhasnaidu2004@gmail.com</span>
+                </div>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium">
-                        Name
+                        Name <span className="text-red-500">*</span>
                       </label>
                       <Input
                         id="name"
@@ -220,10 +223,9 @@ export function ContactSection() {
                         onChange={handleChange}
                       />
                     </div>
-
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">
-                        Email
+                        Your Email <span className="text-red-500">*</span>
                       </label>
                       <Input
                         id="email"
@@ -236,10 +238,9 @@ export function ContactSection() {
                       />
                     </div>
                   </div>
-
                   <div className="space-y-2">
                     <label htmlFor="subject" className="text-sm font-medium">
-                      Subject
+                      Subject <span className="text-red-500">*</span>
                     </label>
                     <Input
                       id="subject"
@@ -250,10 +251,9 @@ export function ContactSection() {
                       onChange={handleChange}
                     />
                   </div>
-
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium">
-                      Message
+                      Message <span className="text-red-500">*</span>
                     </label>
                     <Textarea
                       id="message"
@@ -265,7 +265,6 @@ export function ContactSection() {
                       onChange={handleChange}
                     />
                   </div>
-
                   {/* Honeypot field for spam protection */}
                   <div className="hidden">
                     <input
@@ -276,20 +275,17 @@ export function ContactSection() {
                       autoComplete="off"
                     />
                   </div>
-
                   {/* Success/Error Messages */}
                   {submitStatus === "success" && (
                     <div className="p-3 bg-green-50 border border-green-200 rounded-md">
                       <p className="text-sm text-green-800">{submitMessage}</p>
                     </div>
                   )}
-
                   {submitStatus === "error" && (
                     <div className="p-3 bg-red-50 border border-red-200 rounded-md">
                       <p className="text-sm text-red-800">{submitMessage}</p>
                     </div>
                   )}
-
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                     <Button type="submit" className="w-full gap-2" disabled={isSubmitting}>
                       {isSubmitting ? (
