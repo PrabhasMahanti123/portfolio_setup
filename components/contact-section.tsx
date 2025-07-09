@@ -41,10 +41,28 @@ export function ContactSection() {
     setTimeout(() => setCopied(false), 1500)
   }
 
+  const fakeEmails = ["test@test.com", "abc@abc.com", "example@example.com", "user@user.com"];
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus("idle")
+
+    // Frontend email validation
+    if (!emailRegex.test(formState.email)) {
+      setSubmitStatus("error")
+      setSubmitMessage("Please enter a valid email address.")
+      setIsSubmitting(false)
+      return
+    }
+    if (fakeEmails.includes(formState.email.toLowerCase())) {
+      setSubmitStatus("error")
+      setSubmitMessage("Please enter a real email address.")
+      setIsSubmitting(false)
+      return
+    }
 
     try {
       const response = await fetch("/api/contact", {
