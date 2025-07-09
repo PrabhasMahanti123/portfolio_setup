@@ -4,12 +4,13 @@ import type React from "react"
 
 import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
-import { Mail, MapPin, Send, Linkedin, Github, Twitter } from "lucide-react"
+import { Mail, MapPin, Send, Linkedin, Github, Twitter, Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { SiLeetcode } from "react-icons/si"
+import { Tooltip } from "@/components/ui/tooltip"
 
 export function ContactSection() {
   const ref = useRef(null)
@@ -24,12 +25,20 @@ export function ContactSection() {
     message: "",
     honeypot: "", // Spam protection
   })
+  const [copied, setCopied] = useState(false)
+  const email = "prabhasnaidu2004@gmail.com"
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     })
+  }
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(email)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1500)
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -127,12 +136,25 @@ export function ContactSection() {
                     </div>
                     <div>
                       <h4 className="font-medium">Email</h4>
-                      <a
-                        href="mailto:hello@example.com"
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        prabhasnaidu2004@gmail.com
-                      </a>
+                      <div className="flex items-center gap-2">
+                        <a
+                          href={`mailto:${email}`}
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {email}
+                        </a>
+                        <Tooltip content={copied ? "Copied!" : "Copy"}>
+                          <Button
+                            type="button"
+                            size="icon"
+                            variant="ghost"
+                            aria-label="Copy email"
+                            onClick={handleCopy}
+                          >
+                            <Copy className="w-4 h-4" />
+                          </Button>
+                        </Tooltip>
+                      </div>
                     </div>
                   </div>
 
