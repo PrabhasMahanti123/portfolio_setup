@@ -6,7 +6,7 @@ export function ResumeDownload() {
   return (
     <div className="flex flex-col sm:flex-row gap-2">
       <Button asChild className="gap-2" type="button">
-        <a href="/PrabhasMahanti_Resume.pdf" download target="_blank" rel="noopener noreferrer">
+        <a href="/Prabhas_Naidu_ValueHealth(New).pdf" download target="_blank" rel="noopener noreferrer">
           <FileText className="h-4 w-4" />
           Download PDF
         </a>
