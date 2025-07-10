@@ -176,7 +176,7 @@ export function ProjectsSection() {
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
                   <h3 className="text-2xl md:text-3xl font-bold mb-2">{featuredProjects[currentProject].title}</h3>
-                  <p className="text-muted-foreground mb-4 max-w-2xl">{featuredProjects[currentProject].description}</p>
+                  <p className="text-gray-800 dark:text-gray-200 mb-4 max-w-2xl">{featuredProjects[currentProject].description}</p>
 
                   <div className="flex flex-wrap gap-2 mb-6">
                     {featuredProjects[currentProject].tags.map((tag) => (

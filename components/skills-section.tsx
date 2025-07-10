@@ -16,7 +16,8 @@ import {
   Zap,
   Target,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Server
 } from "lucide-react"
 import TypingAnimation from "@/components/typing-animation"
 
@@ -49,15 +50,29 @@ export function SkillsSection() {
     },
     {
       title: "Backend",
-      icon: <div className="bg-purple-100 dark:bg-purple-900 p-2 rounded-full"><Database className="h-5 w-5 text-purple-600 dark:text-purple-300" /></div>,
-      skills: ["REST APIs", "MongoDB", "PostgreSQL"],
+      icon: <div className="bg-purple-100 dark:bg-purple-900 p-2 rounded-full"><Server className="h-5 w-5 text-purple-600 dark:text-purple-300" /></div>,
+      skills: ["REST APIs", "Node.js"],
       color: "text-purple-400 dark:text-purple-300",
+      gradient: ""
+    },
+    {
+      title: "Database",
+      icon: <div className="bg-pink-100 dark:bg-pink-900 p-2 rounded-full"><Database className="h-5 w-5 text-pink-600 dark:text-pink-300" /></div>,
+      skills: ["MongoDB", "PostgreSQL"],
+      color: "text-pink-400 dark:text-pink-300",
+      gradient: ""
+    },
+    {
+      title: "Programming Fundamentals",
+      icon: <div className="bg-blue-100 dark:bg-blue-900 p-2 rounded-full"><Zap className="h-5 w-5 text-blue-600 dark:text-blue-300" /></div>,
+      skills: ["OOP", "Data Structures"],
+      color: "text-blue-400 dark:text-blue-300",
       gradient: ""
     },
     {
       title: "Tools",
       icon: <div className="bg-orange-100 dark:bg-orange-900 p-2 rounded-full"><Workflow className="h-5 w-5 text-orange-500 dark:text-orange-300" /></div>,
-      skills: ["Git", "GitHub", "VS Code", "Figma"],
+      skills: ["Git/GitHub", "VS Code", "Figma"],
       color: "text-orange-400 dark:text-orange-300",
       gradient: ""
     },
@@ -71,7 +86,7 @@ export function SkillsSection() {
     {
       title: "AI/ML",
       icon: <div className="bg-indigo-100 dark:bg-indigo-900 p-2 rounded-full"><Brain className="h-5 w-5 text-indigo-500 dark:text-indigo-300" /></div>,
-      skills: ["Machine Learning", "Large Language Models", "Data Structures", "OOP"],
+      skills: ["Machine Learning", "Large Language Models"],
       color: "text-indigo-400 dark:text-indigo-300",
       gradient: ""
     },

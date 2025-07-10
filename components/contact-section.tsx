@@ -120,6 +120,7 @@ export function ContactSection() {
   const socialLinks = [
     { href: "https://github.com/PrabhasMahanti123", icon: <Github className="h-5 w-5" />, label: "GitHub" },
     { href: "https://www.linkedin.com/in/prabhas-naidu-mahanti-995a39284/", icon: <Linkedin className="h-5 w-5" />, label: "LinkedIn" },
+    { href: "mailto:prabhasnaidu2004@gmail.com", icon: <Mail className="h-5 w-5" />, label: "Email" },
     // { href: "https://twitter.com/yourusername", icon: <Twitter className="h-5 w-5" />, label: "Twitter" },
     //{ href: "https://leetcode.com/your_leetcode_username/", icon: <SiLeetcode className="h-5 w-5 text-[#FFA116]" />, label: "LeetCode" },
   ]
